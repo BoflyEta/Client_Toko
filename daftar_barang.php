@@ -42,13 +42,13 @@
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="pembelian.php">
-							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Transaksi</span>
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Pembelian</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="penjualan.php">
-							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Transaksi</span>
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Penjualan</span>
 						</a>
 					</li>
 

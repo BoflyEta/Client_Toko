@@ -41,13 +41,13 @@
 
 					<li class="sidebar-item active">
 						<a class="sidebar-link" href="pembelian.php">
-							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Transaksi</span>
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Pembelian</span>
 						</a>
 					</li>
 
 					<li class="sidebar-item">
 						<a class="sidebar-link" href="penjualan.php">
-							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Transaksi</span>
+							<i class="align-middle" data-feather="grid"></i> <span class="align-middle">Penjualan</span>
 						</a>
 					</li>
 
@@ -227,6 +227,115 @@
 						<div class="col-12">
 							<div class="card">
 								<div class="card-body">
+									<form>
+										<div class="row">
+											<div class="col-5">
+												<div class="card no-border p-3" style="background-color: #ECECEC; ">
+													<form class="">
+
+														<div class="form-group row mb-2">
+															<label for="inputFirstName" class="col-sm-5 col-form-label col-form-label-sm">Nomor Nota</label>
+															<div class="col-sm-7 ml-2">
+																<input type="text" class="form-control form-control-sm no-border bg-transparent" id="nota" placeholder=" " name="nota" value="" disabled />
+															</div>
+														</div>
+
+														<div class="form-group row mb-2">
+															<label for="inputFirstName" class="col-sm-5 col-form-label col-form-label-sm">Tanggal</label>
+															<div class="col-sm-7 ml-2">
+																<input type="text" class="form-control form-control-sm no-border bg-transparent" id="tanggal" placeholder=" " name="tanggal" value="<?= date("Y-m-d"); ?>" disabled />
+															</div>
+														</div>
+
+														<div class="form-group row mb-2">
+															<label for="inputFirstName" class="col-sm-5 col-form-label col-form-label-sm">Operator</label>
+															<div class="col-sm-7 ml-2">
+																<input type="hidden" class="form-control form-control-sm no-border bg-transparent" id="kodeoperator" placeholder=" " name="kodeoperator" value="" disabled />
+																<input type="text" class="form-control form-control-sm no-border bg-transparent" id="namaoperator" placeholder=" " name="namaoperator" value="" disabled />
+															</div>
+														</div>
+
+													</form>
+												</div>
+											</div>
+											<div class="col-7">
+												<div class="card no-border" style="background-color: #ECECEC; ">
+													<form class="p-5">
+														<div class="form-group row">
+															<label for="grandtotal" class="form-label h3 col-5 fw-bold">Grand Total</label>
+															<div class="col-lg-6 ml-2">
+																<div class="input-group">
+																	<div class="input-group-text bg-transparent">Rp. </div>
+																	<input type="number" class="form-control form-control-lg bg-transparent" id="grandtotal" readonly value="0" />
+																</div>
+															</div>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div>
+										<div class="row g-3 mt-1 mb-4">
+											<div class="col-md-2">
+												<label for="inputCity" class="form-label">Kode Barang</label>
+												<input type="text" class="form-control form-control-sm register_form " id="kodebarang" name="kodebarang" required value="" oninput="" />
+											</div>
+											<div class="col-md-2">
+												<label for="inputCity" class="form-label">Nama Barang</label>
+												<input type="text" class="form-control form-control-sm" id="namabarang" name="namabarang" required value="" readonly />
+											</div>
+
+											<div class="col-md-2">
+												<label for="inputCity" class="form-label">Harga Beli</label>
+												<input type="number" class="form-control form-control-sm register_form" id="hbbaru" name="hbbaru" required value="" oninput="" />
+											</div>
+
+											<div class="col-md-2">
+												<label for="inputCity" class="form-label">Harga Jual</label>
+												<input type="text" class="form-control form-control-sm" id="hjbaru" name="hjbaru" required value="" readonly />
+											</div>
+											<div class="col-md-2">
+												<label for="inputCity" class="form-label">Jumlah</label>
+												<input type="number" min="1" class="form-control  form-control-sm register_form" id="jumlah" name="jumlah" required value="" oninput="" />
+											</div>
+											<input type="hidden" min="1" class="form-control" id="hblama" name="hblama" required value="" />
+											<input type="hidden" min="1" class="form-control" id="hjlama" name="hjlama" required value="" />
+										</div>
+										<input type="hidden" class="form-control" id="pre_stok" name="pre_stok" required value="" />
+										<input type="hidden" class="form-control form-control-sm" id="total" name="total" readonly value="0" />
+										<div style="max-height:300px; overflow-y:scroll ;overflow-x:auto ;width:100%">
+											<table class="table table-striped table-hover" id="dataTable">
+
+												<tr>
+													<th style="display: none;">Nomor Nota</th>
+													<th>Kode Barang</th>
+													<th>Nama Barang</th>
+													<th>Harga</th>
+													<th>Jumlah</th>
+													<th>Total</th>
+													<th>Hapus</th>
+												</tr>
+
+												<tbody id="table_data">
+													<!-- Nanti isinya tabel yang di append lewat javascript -->
+													<tr id="row1">
+														<td style="display: none;">-</td>
+														<td>-</td>
+														<td>-</td>
+														<td>-</td>
+														<td>-</td>
+														<td>-</td>
+														<td>-</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+										<br>
+										<button type="button" class="btn btn-danger" onclick="">Batal</button>
+										<button type="button" class="btn btn-primary" style="display: none;" id="add" name="add" value="add" onclick="">Tambah</button>
+										<button type="submit" class="btn btn-primary" onclick="">Simpan</button>
+										<br>
+										<br>
+									</form>
 								</div>
 							</div>
 						</div>
